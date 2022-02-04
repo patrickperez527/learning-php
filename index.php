@@ -39,7 +39,7 @@
                                     <?php endforeach ?>
                             </div>
                             <div class="card-action right-align">
-                                <a href="#" class="brand-text">More info</a>
+                                <a class="brand-text" href="details.php?id=<?php echo $pizza['id']; ?>" >More info</a>
                             </div>
                         </div>
                     </div>
