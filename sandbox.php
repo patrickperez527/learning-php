@@ -1,34 +1,29 @@
 <?php 
 
-    // file system part 1
+    // file system part 2
 
-    // $quotes = readfile('readme.txt');
-    // echo $quotes; // quotes 321(number of bytes)
+    $file = 'quotes.txt';
 
-    // check if file exits
-    $file = 'readme.txt';
+    // opening file for a reading
+    $handle = fopen($file, 'a+'); // r+ = read and write(start) // a+ = write from the end
 
-   if (file_exists($file)) {
-       // read file
-       echo readfile($file) . '<br/>';
+    // read the file
+    echo fread($handle, filesize($file));
+    echo fread($handle, 112); // read only 112 bytes
 
-       // copy file
-       copy($file, 'quotes.txt');
+    // read a single line
+    echo fgets($handle);
+    echo fgets($handle); // this is the second line
 
-       // absolute path (find real path of a file)
-       echo realpath($file) . '<br/>';
+    // read a single character
+    echo fgetc($handle); // T
 
-       // find file size
-       echo filesize($file) . '<br/>';
+    // writing to a character
+    fwrite($handle, "\nEverything popular is wrong");
 
-       // rename file
-       rename($file, 'test.txt');
+    fclose($handle);
 
-   } else {
-       echo 'file does not exist';
-   }
-
-   // make directory
-   mkdir('quotes');
+    // delete a file
+    // unlink($file);
 
 ?>
